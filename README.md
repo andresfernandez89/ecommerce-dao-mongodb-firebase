@@ -1,6 +1,6 @@
 ## Ecommerce App - CRUD
 
-[**View Project**]()
+[**View Project**](https://ecommerce-dao-mongodb-firebase.herokuapp.com/api/products)
 
 - Express js
 - EJS
