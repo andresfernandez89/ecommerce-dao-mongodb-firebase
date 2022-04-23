@@ -2,15 +2,16 @@ import admin from "firebase-admin";
 import config from "../config.js";
 
 try {
-	admin.initializeApp({
-		credential: admin.credential.cert(config.firebase),
-	});
-	console.log("Database Connected");
+	const firebaseConfig = config.firebase;
+
+	// Initialize Firebase
+	const app = admin.initializeApp(firebaseConfig);
+	console.log("Connected database");
 } catch (error) {
-	console.log("Failed to connect to Database");
+	console.log(error);
 }
 
-const db = admin.firestore();
+let db = admin.firestore();
 
 class ContainerFirebase {
 	constructor(collection) {

@@ -1,3 +1,6 @@
+//Dotenv
+import "dotenv/config";
+
 //Express
 import express from "express";
 const app = express();

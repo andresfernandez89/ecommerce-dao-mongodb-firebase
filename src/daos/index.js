@@ -1,6 +1,6 @@
 let productsDao;
 let cartsDao;
-let env = "firebase";
+let env = process.env.DB;
 
 switch (env) {
 	case "files":
