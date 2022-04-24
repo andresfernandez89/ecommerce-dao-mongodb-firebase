@@ -3,19 +3,19 @@ import config from "../config.js";
 
 try {
 	const firebaseConfig = config.firebase;
-
-	// Initialize Firebase
-	const app = admin.initializeApp(firebaseConfig);
+	admin.initializeApp({
+		credential: admin.credential.cert(firebaseConfig),
+		databaseURL: "https://ecommercecoder.firebaseio.com",
+	});
 	console.log("Connected database");
 } catch (error) {
 	console.log(error);
 }
 
 let db = admin.firestore();
-
 class ContainerFirebase {
 	constructor(collection) {
-		this.collection = db.collection(collection);
+		this.collection = db.collection("products");
 	}
 
 	async getAll() {
@@ -27,6 +27,7 @@ class ContainerFirebase {
 			});
 			return data;
 		} catch (error) {
+			console.log(error);
 			console.log("The file cannot be read.");
 		}
 	}
