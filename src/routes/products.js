@@ -1,17 +1,17 @@
 import express from "express";
-const {Router} = express;
+const { Router } = express;
 const router = new Router();
 
-import {productsDao as productsApi} from "../daos/index.js";
+import { productsDao as productsApi } from "../daos/index.js";
 
 //Get all
 router.get("/", async (req, res) => {
 	try {
 		const products = await productsApi.getAll();
 		if (products.length > 0) {
-			return res.render("pages/list", {title: "List of products", data: products});
+			return res.render("pages/list", { title: "List of products", data: products });
 		}
-		return res.render("pages/list", {data: false});
+		return res.render("pages/list", { data: false });
 	} catch (error) {
 		res.json({
 			error: -1,
@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 router.get("/form", (req, res) => {
 	try {
 		if (req.query.admin === "true") {
-			return res.render("pages/addProduct", {title: "Add Product"});
+			return res.render("pages/addProduct", { title: "Add Product" });
 		}
 	} catch (error) {
 		res.status(401).json({
@@ -33,9 +33,9 @@ router.get("/form", (req, res) => {
 		});
 	}
 });
-router.post("/add", (req, res) => {
+router.post("/add", async (req, res) => {
 	try {
-		productsApi.add(req.body);
+		await productsApi.add(req.body);
 		res.redirect("/api/products");
 	} catch (error) {
 		res.json({
@@ -49,9 +49,9 @@ router.post("/add", (req, res) => {
 router.get("/:id", async (req, res) => {
 	try {
 		const product = await productsApi.getById(req.params.id);
-		if (product) return res.render("pages/product", {title: "Product Detail", data: product});
+		if (product) return res.render("pages/product", { title: "Product Detail", data: product });
 	} catch (error) {
-		res.json({error: -1, descripcion: `route ${req.url} method '${req.method}' not authorized`});
+		res.json({ error: -1, descripcion: `route ${req.url} method '${req.method}' not authorized` });
 	}
 });
 
@@ -60,7 +60,7 @@ router.get("/form/:id", async (req, res) => {
 	try {
 		if (req.query.admin === "true") {
 			const product = await productsApi.getById(req.params.id);
-			if (product) return res.render("pages/editProduct", {title: "Edit Product", data: product});
+			if (product) return res.render("pages/editProduct", { title: "Edit Product", data: product });
 		}
 	} catch (error) {
 		res.json({
@@ -73,8 +73,8 @@ router.get("/form/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
 	try {
 		if (req.query.admin === "true") {
-			const productUpd = await productsApi.editById(req.params.id, req.body);
-			res.redirect("/api/products"); // No me permite hacer un redirect;
+			await productsApi.editById(req.params.id, req.body);
+			/* res.redirect("/api/products"); */ // No me permite hacer un redirect;
 		}
 	} catch (error) {
 		res.json({
@@ -89,12 +89,12 @@ router.delete("/:id", async (req, res) => {
 	try {
 		if (req.query.admin === "true") {
 			await productsApi.deleteById(req.params.id);
-			res.redirect("/api/products"); // No me permite hacer un redirect;
+			/* 	res.redirect("/api/products"); */ // No me permite hacer un redirect;
 		}
 	} catch (error) {
 		res.json({
 			error: -1,
-			descripcion: `route ${req.url} 
+			descripcion: `route ${req.url}
 method '${req.method}' not authorized`,
 		});
 	}

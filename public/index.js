@@ -11,7 +11,7 @@ const sendPr = (e) => {
 	let pricePr = document.querySelector("#pricePr").value;
 	let stockPr = document.querySelector("#stockPr").value;
 
-	return fetch("/api/products/" + idPr + "?admin=true", {
+	fetch("/api/products/" + idPr + "?admin=true", {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
@@ -28,6 +28,8 @@ const sendPr = (e) => {
 			stock: stockPr,
 		}),
 	});
+
+	window.location.href = "/api/products";
 };
 if (editForm) {
 	editForm.addEventListener("submit", sendPr);
@@ -35,10 +37,11 @@ if (editForm) {
 
 //Delete product
 const sendId = (id) => {
-	return fetch("/api/products/" + id + "?admin=true", {
+	fetch("/api/products/" + id + "?admin=true", {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
 		},
 	});
+	window.location.href = "/api/products";
 };
