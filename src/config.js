@@ -5,7 +5,7 @@ export default {
 	},
 
 	mongoDB: {
-		cnx: " mongodb://127.0.0.1:27017/ecommerce",
+		cnx: "mongodb://127.0.0.1:27017/ecommerce",
 		options: {
 			serverSelectionTimeoutMS: 5000,
 		},
