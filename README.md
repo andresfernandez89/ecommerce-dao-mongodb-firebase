@@ -5,7 +5,7 @@ CRUD E-commerce REST API using express and FIREBASE implementing DAO
 
 ## Demo
 
-https://ecommerce-dao-mongodb-firebase.onrender.com/api/products
+https://ecommerce-dao-firebase-mongodb.onrender.com/api/products
 
 
 ## Tech Stack
