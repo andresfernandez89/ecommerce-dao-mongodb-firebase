@@ -1,63 +1,71 @@
-# ECOMMERCE - CRUD . EXPRESS - FIREBASE
 
-## CRUD - DAO - NODEJS - EXPRESS - MONGO DB - FIREBASE
+# ECOMMERCE - CRUD - EXPRESS - FIREBASE - DAO
 
-## Deploy
+CRUD E-commerce REST API using express and FIREBASE implementing DAO
 
-Deploy on heroku
+## Demo
 
-https://ecommerce-dao-mongodb-firebase.herokuapp.com/api/products
+https://ecommerce-dao-mongodb-firebase.onrender.com/api/products
 
-## Technologies
 
-- "bcrypt": "^5.0.1",
-- "connect-mongo": "^4.6.0",
-- "cors": "^2.8.5",
-- "dotenv": "^16.0.0",
-- "ejs": "^3.1.6",
-- "express": "^4.17.1",
-- "express-session": "^1.17.2",
-- "log4js": "^6.4.1",
-- "minimist": "^1.2.5",
-- "moment": "^2.29.3",
-- "mongoose": "^6.1.1",
-- "multer": "^1.4.4",
-- "nodemailer": "^6.7.2",
-- "passport": "^0.5.2",
-- "passport-local": "^1.0.0",
-- "socket.io": "^4.4.1",
-- "twilio": "^3.75.0"
+## Tech Stack
 
-## Get Started
+Node - Express - EJS - FIREBASE - MONGODB
 
-App require [Node.js](https://nodejs.org/)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/andresfernandez89/ecommerce-dao-mongodb-firebase.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
 
 Install dependencies
 
-```sh
-npm i
-npm start
+```bash
+  npm install
 ```
 
-## Available Scripts
+Start the server
 
-In the project directory, you can run:
+```bash
+  npm run start
+```
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+## Environment Variables
 
-## .env file
+To run this project, you will need to add the following environment variables to your .env file
 
-- DB=firebase
-- FIREBASE_TYPE=
-- FIREBASE_PROJECT_ID=
-- FIREBASE_PRIVATE_KEY_ID=
-- FIREBASE_PRIVATE_KEY=
-- FIREBASE_CLIENT_EMAIL=
-- FIREBASE_CLIENT_ID=
-- FIREBASE_AUTH_URI=
-- FIREBASE_TOKEN_URI=
-- FIREBASE_AUTH_PROVIDER=
-- FIREBASE_CLIENT_CERT_URI=
+`DB`
+
+`FIREBASE_TYPE`
+
+`FIREBASE_PROJECT_ID`
+
+`FIREBASE_PRIVATE_KEY_ID`
+
+`FIREBASE_PRIVATE_KEY`
+
+`FIREBASE_CLIENT_EMAIL`
+
+`FIREBASE_CLIENT_ID`
+
+`FIREBASE_AUTH_URI`
+
+`FIREBASE_TOKEN_URI`
+
+`FIREBASE_AUTH_PROVIDER`
+
+`FIREBASE_CLIENT_CERT_URI`
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andresfernandez89/)
+
